@@ -1,0 +1,21 @@
+<h1>Hello, welcome to the blogging website!</h1>
+
+<h2>Login!</h2>
+
+<%= form_for @user do |f| %>
+
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

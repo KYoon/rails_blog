@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
+  resources :sessions
+  resources :users
   resources :articles do
     resources :comments
   end
 
-  root 'welcome#index'
+  root 'sessions#new'
 
 
 
