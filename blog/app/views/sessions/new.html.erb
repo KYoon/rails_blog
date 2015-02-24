@@ -1,21 +1,19 @@
-<h1>Hello, welcome to the blogging website!</h1>
-
 <h2>Login!</h2>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, url: login_path do |f| %>
 
   <p>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
   </p>
 
   <p>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit value: "Login" %>
   </p>
 
 <% end %>

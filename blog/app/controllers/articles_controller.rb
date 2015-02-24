@@ -1,16 +1,19 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
+    ensure_logged_in
     @articles = Article.all
   end
 
   def show
+    ensure_logged_in
     @article = Article.find(params[:id])
   end
 
   def new
+    ensure_logged_in
     @article = Article.new
   end
 

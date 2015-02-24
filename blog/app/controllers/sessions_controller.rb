@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:user][:username], params[:user][:password])
+    user = User.authenticate(params[:user][:email], params[:user][:password])
     if user
       session[:user_id] = user.id
       redirect_to articles_path
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sessions.delete(:user_id)
-    redirect_to root
+    session.delete(:user_id)
+    redirect_to '/'
   end
 end
