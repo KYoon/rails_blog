@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = Article.new(title: params[:article][:title], text: params[:article][:text], creator: current_user) # How to use article_params here?
 
     if @article.save
       redirect_to @article
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    if @article.update(article_params)
+    if @article.update(title: params[:article][:title], text: params[:article][:text], creator: current_user) # How to use article_params here?
       redirect_to @article
     else
       render 'edit'
